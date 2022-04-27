@@ -1,0 +1,16 @@
+browser:
+    name: chrome
+    webElement:
+        timeOut: 10
+        polling: 200
+    attachScreenshot: true
+    headless: true
+activeEnvironment: test
+environments:
+    test:
+        app:
+            url: http://automationpractice.com/
+    prod:
+        app:
+            url: http://automationpractice.com/
+
