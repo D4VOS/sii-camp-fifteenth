@@ -15,7 +15,6 @@ public class CategoryPage extends AutomationPracticeBasePage {
     }
 
     public ProductListPage products() {
-        highLight(productGrid);
         return new ProductListPage(driver, productGrid);
     }
 }

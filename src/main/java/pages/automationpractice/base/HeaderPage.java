@@ -28,11 +28,10 @@ public class HeaderPage extends BasePage {
 
     public WomenMenuPage inWomenMenu() {
         hoverCategoryTile(womenTile);
-        waitForLoad();
         return new WomenMenuPage(driver, subMenu);
     }
 
     private void hoverCategoryTile(WebElement tile) {
-        hoverElement(tile, driver);
+        hoverElement(tile);
     }
 }

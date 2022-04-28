@@ -18,7 +18,6 @@ public class WomenMenuPage extends BasePage {
     }
 
     public CategoryPage goToBlouses() {
-        highLight(blousesLink);
         clickElement(blousesLink);
         return new CategoryPage(driver);
     }

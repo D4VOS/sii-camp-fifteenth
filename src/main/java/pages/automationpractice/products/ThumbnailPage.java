@@ -21,6 +21,6 @@ public class ThumbnailPage extends BasePage {
     }
 
     public void hover() {
-        hoverElement(link, driver);
+        hoverElement(link);
     }
 }

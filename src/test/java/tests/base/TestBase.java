@@ -2,8 +2,8 @@ package tests.base;
 
 import config.properties.BrowserEnvironment;
 import config.properties.EnvironmentProperty;
+import helpers.listeners.DriverListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import listener.Listener;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +22,7 @@ public abstract class TestBase {
     static EnvironmentProperty environmentProperty;
     protected WebDriver driverEngine;
     protected EventFiringWebDriver driver;
-    protected Listener listener;
+
 
     @BeforeAll
     static void beforeAll() {
@@ -41,8 +41,7 @@ public abstract class TestBase {
     void setUp() {
         driverEngine = browserEnvironment.getDriver();
         driver = new EventFiringWebDriver(driverEngine);
-        listener = new Listener();
-        driver.register(listener);
+        DriverListener.setup(driver);
 
         MDC.put("driverId", "(Driver: " + driver.hashCode() + ')');
         logger.info("Created and maximized driver properly");
