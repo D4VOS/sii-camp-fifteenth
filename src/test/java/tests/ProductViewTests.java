@@ -23,13 +23,14 @@ public class ProductViewTests extends Pages {
                 .getFirst()
                 .view();
 
-        at(ProductPage.class).getThumbnails().forEach(thumbnail -> {
-            thumbnail.hover();
-            String currentImage = at(ProductPage.class).getCurrentImageSource();
-            String thumbnailImage = thumbnail.getSource();
+        at(ProductPage.class)
+                .getThumbnails().forEach(thumbnail -> {
+                    thumbnail.hover();
+                    String currentImage = at(ProductPage.class).getCurrentImageSource();
+                    String thumbnailImage = thumbnail.getSource();
 
-            logger.info("Main image source: " + currentImage + " thumbnail source: " + thumbnailImage);
-            assertThat(currentImage).isEqualTo(thumbnailImage);
-        });
+                    logger.info("Main image source: " + currentImage + " thumbnail source: " + thumbnailImage);
+                    assertThat(currentImage).isEqualTo(thumbnailImage);
+                });
     }
 }
