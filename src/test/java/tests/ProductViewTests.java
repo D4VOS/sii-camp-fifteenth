@@ -15,17 +15,17 @@ public class ProductViewTests extends Pages {
 
     @Test
     public void productImages_shouldShowUp_whenHovered() {
-        CategoryPage categoryPage = at(HomePage.class).inHeader()
+        at(HomePage.class).inHeader()
                 .inWomenMenu()
                 .goToBlouses();
 
-        ProductPage productPage = categoryPage.products()
+        at(CategoryPage.class).products()
                 .getFirst()
                 .view();
 
-        productPage.getThumbnails().forEach(thumbnail -> {
+        at(ProductPage.class).getThumbnails().forEach(thumbnail -> {
             thumbnail.hover();
-            String currentImage = productPage.getCurrentImageSource();
+            String currentImage = at(ProductPage.class).getCurrentImageSource();
             String thumbnailImage = thumbnail.getSource();
 
             logger.info("Main image source: " + currentImage + " thumbnail source: " + thumbnailImage);
